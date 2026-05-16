@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-contracts
 RUN apt-get update && apt-get install -y git --no-install-recommends && rm -rf /var/lib/apt/lists/*
 RUN git clone https://github.com/marcoantn020/fcg-contracts.git /contracts-src
-WORKDIR /contracts-src/Contracts/Contracts
+WORKDIR /contracts-src/Contracts
 RUN dotnet pack -c Release -o /nuget-local
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
